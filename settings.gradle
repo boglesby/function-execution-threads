@@ -1,0 +1,2 @@
+rootProject.name = 'function-execution-threads'
+include 'client','server'

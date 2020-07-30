@@ -1,0 +1,11 @@
+# Connect to gfsh
+connect
+
+# Set screen width
+set variable --name=APP_RESULT_VIEWER --value=any
+
+# Deploy Function
+deploy --jar=server/build/libs/server-0.0.1-SNAPSHOT.jar
+
+# List Functions
+list functions

@@ -1,0 +1,25 @@
+# Start locator
+start locator --name=locator
+
+# Set screen width
+set variable --name=APP_RESULT_VIEWER --value=any
+
+# Start Servers
+start server --name=server-1 --server-port=0 --statistic-archive-file=cacheserver.gfs --J=-Dgemfire.log-file=cacheserver.log --J=-Dgemfire.conserve-sockets=false
+start server --name=server-2 --server-port=0 --statistic-archive-file=cacheserver.gfs --J=-Dgemfire.log-file=cacheserver.log --J=-Dgemfire.conserve-sockets=false
+
+# List Members
+list members
+
+# Create Regions
+create region --name=PartitionedTrade --type=PARTITION_REDUNDANT
+create region --name=ReplicatedTrade --type=REPLICATE
+
+# List Regions
+list regions
+
+# Deploy Functions
+deploy --jar=server/build/libs/server-0.0.1-SNAPSHOT.jar
+
+# List Functions
+list functions
